@@ -11,5 +11,8 @@ RecursionCS 課題 Project4 Computer Builder
 * HTML
 * CSS
 
+## URL
+https://project4-computer-builder.vercel.app/
+
 ## Author
 **<a href="https://github.com/hashiz008">hashiz008</a>** 
