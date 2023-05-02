@@ -2,7 +2,7 @@
   <header class="titleDiv d-flex justify-content-center pt-2">
     <h3 class="titl text-white fs-1">Build Your Own PC</h3>
   </header>
-  <div class="d-flex rounded-bottom flex-column justify-content-start mainBody">
+  <div class="d-flex flex-column  mainBody">
     <div class="d-flex flex-column p-2">
       <p class="fs-3">step1: Select your CPU</p>
       <div class="d-flex">
@@ -22,7 +22,7 @@
         </div>
       </div>
     </div>
-    <div class="d-flex flex-column p-2">
+    <div class="d-flex flex-column  p-2">
       <p class="fs-3">step2: Select your GPU</p>
       <div class="d-flex">
         <div class="d-flex align-items-center">
@@ -39,7 +39,7 @@
         </div>
       </div>
     </div>
-    <div class="d-flex flex-column p-2">
+    <div class="d-flex flex-column  p-2">
       <p class="fs-3">step3: Select your memory card</p>
       <div class="d-flex">
         <div class="d-flex align-items-center">
@@ -91,12 +91,12 @@
         </div>
       </div>
     </div>
-    <div class="p-4">
-      <button class="btn btn-primary col-2 fs-5" @click="addBtn">Add PC</button>
+    <div class="p-4 d-flex">
+      <button class="btn btn-primary fs-4 col-3" @click="addBtn">Add PC</button>
     </div>
   </div>
   <div v-if="isAdded" class="d-flex mt-5 justify-content-center">
-    <div class="d-flex flex-column bg-info text-white col-sm-6 rounded-4 resSpace">
+    <div class="d-flex flex -column bg-info text-white col-sm-6 rounded-4 resSpace">
       <div class="d-flex flex-column pt-3">
         <p class="fs-2">CPU</p>
         <p class="fs-5">Brnad: {{ cpuBrand }}</p>
@@ -412,7 +412,7 @@ export default defineComponent({
   background-color: blue;
 }
 .mainBody {
-  background-color: rgb(87, 242, 87);
+  margin-left: 30px;
 }
 .select {
   width: 10vw;
