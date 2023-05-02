@@ -96,7 +96,7 @@
     </div>
   </div>
   <div v-if="isAdded" class="d-flex mt-5 justify-content-center">
-    <div class="d-flex flex -column bg-info text-white col-sm-6 rounded-4 resSpace">
+    <div class="d-flex flex-column bg-info text-white col-sm-6 rounded-4 resSpace">
       <div class="d-flex flex-column pt-3">
         <p class="fs-2">CPU</p>
         <p class="fs-5">Brnad: {{ cpuBrand }}</p>
