@@ -331,7 +331,6 @@ export default defineComponent({
       })
     })
     const addBtn = () => {
-      // else confirm('全ての項目を入力してください')
       cpuBrand.value = cpuSelBrand.value
       cpuModel.value = cpuResModel.value
       gpuBrand.value = gpuSelBrand.value
@@ -345,8 +344,7 @@ export default defineComponent({
       const gaming: number = 0.6 + 0.25 + 0.025 + 0.025
       const working: number = 0.6 + 0.25 + 0.1 + 0.05
       const resRam: number = parseInt(
-        ramResModel.value[ramResModel.value.length - 1].replace('x', '').slice(0, -2),10);
-      console.log(ramResModel.value)
+        ramResModel.value.slice(-4, ramResModel.value.length).replace('x', '').slice(0, -2),10);
       const res: number = 100 - parseInt(manyRam.value, 10) * resRam
       resGaming.value = Math.floor(res * gaming)
       resWorking.value = Math.floor(res * working)
