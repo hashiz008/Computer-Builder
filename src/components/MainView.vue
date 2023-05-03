@@ -2,7 +2,7 @@
   <header class="titleDiv d-flex justify-content-center pt-2">
     <h3 class="titl text-white fs-1">Build Your Own PC</h3>
   </header>
-  <div class="d-flex flex-column  mainBody">
+  <div class="d-flex flex-column mainBody">
     <div class="d-flex flex-column p-2">
       <p class="fs-3">step1: Select your CPU</p>
       <div class="d-flex">
@@ -22,7 +22,7 @@
         </div>
       </div>
     </div>
-    <div class="d-flex flex-column  p-2">
+    <div class="d-flex flex-column p-2">
       <p class="fs-3">step2: Select your GPU</p>
       <div class="d-flex">
         <div class="d-flex align-items-center">
@@ -39,7 +39,7 @@
         </div>
       </div>
     </div>
-    <div class="d-flex flex-column  p-2">
+    <div class="d-flex flex-column p-2">
       <p class="fs-3">step3: Select your memory card</p>
       <div class="d-flex">
         <div class="d-flex align-items-center">
@@ -251,14 +251,14 @@ export default defineComponent({
       watch(ramBrand, async (ram) => {
         const response: AxiosResponse = await axios.get(
           `https://api.recursionist.io/builder/computers?type=ram&brand=${ram}`
-        );
-        const ramSelModels: string[] = [];
+        )
+        const ramSelModels: string[] = []
         for (let ramData of response.data) {
           const ramMod = ramData.Model
           const nums = parseInt(ramMod.slice(-6, ramMod.lemngth).replace(' ', '').slice(0, 1), 10)
           if (parseInt(num) === nums) ramSelModels.push(ramData.Model)
         }
-        ramModels.value = ramSelModels;
+        ramModels.value = ramSelModels
       })
     })
     //storage
@@ -331,6 +331,25 @@ export default defineComponent({
       })
     })
     const addBtn = () => {
+      // else confirm('全ての項目を入力してください')
+      cpuBrand.value = cpuSelBrand.value
+      cpuModel.value = cpuResModel.value
+      gpuBrand.value = gpuSelBrand.value
+      gpuModel.value = gpuResModel.value
+      ramBrandes.value = ramBrand.value
+      ramModel.value = ramResModel.value
+      reshddOrssd.value = selhddOrssdes.value
+      resStorage.value = storageCapes.value
+      resStoBrand.value = storageSelBrandes.value
+      resStoModel.value = storageSelModeles.value
+      const gaming: number = 0.6 + 0.25 + 0.025 + 0.025
+      const working: number = 0.6 + 0.25 + 0.1 + 0.05
+      const resRam: number = parseInt(
+        ramResModel.value[ramResModel.value.length - 1].replace('x', '').slice(0, -2),10);
+      console.log(ramResModel.value)
+      const res: number = 100 - parseInt(manyRam.value, 10) * resRam
+      resGaming.value = Math.floor(res * gaming)
+      resWorking.value = Math.floor(res * working)
       if (
         cpuBrand.value[0] !== undefined &&
         cpuModel.value[0] !== undefined &&
@@ -342,28 +361,7 @@ export default defineComponent({
         resStorage.value[0] !== undefined &&
         resStoBrand.value[0] !== undefined &&
         resStoModel.value[0] !== undefined
-      )
-        isAdded.value = true
-      else confirm('全ての項目を入力してください')
-      cpuBrand.value = cpuSelBrand.value;
-      cpuModel.value = cpuResModel.value;
-      gpuBrand.value = gpuSelBrand.value;
-      gpuModel.value = gpuResModel.value;
-      ramBrandes.value = ramBrand.value;
-      ramModel.value = ramResModel.value;
-      reshddOrssd.value = selhddOrssdes.value;
-      resStorage.value = storageCapes.value;
-      resStoBrand.value = storageSelBrandes.value;
-      resStoModel.value = storageSelModeles.value;
-      const gaming: number = 0.6 + 0.25 + 0.025 + 0.025;
-      const working: number = 0.6 + 0.25 + 0.1 + 0.05;
-      const resRam: number = parseInt(
-        ramResModel.value.slice(-4, ramResModel.value.length).replace('x', '').slice(0, -2),
-        10
-      );
-      const res: number = 100 - parseInt(manyRam.value, 10) * resRam
-      resGaming.value = Math.floor(res * gaming);
-      resWorking.value = Math.floor(res * working);
+      ) isAdded.value = true;
     }
     return {
       cpuBrands,
